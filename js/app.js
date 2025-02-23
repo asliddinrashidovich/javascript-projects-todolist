@@ -16,6 +16,7 @@ const closeEl = document.getElementById('close')
 
 let todos = localStorage.getItem("list") ?  JSON.parse(localStorage.getItem("list")) : [];
 let openModel;
+console.log(todos)
 
 // focus on input in DOMContent load
 document.addEventListener('DOMContentLoaded', ()=> {
@@ -30,9 +31,9 @@ function setTime () {
         "July", "August", "September", "October", "November", "December"
     ];
 
-    let monthfor = now.getMonth()
-    let dayfor = now.getDate()
-    let day = now.getDate() < 10 ? '0' +  now.getDate()  : now.getDate;
+    let monthfor = now.getMonth();
+    let dayfor = now.getDate();
+    let day = now.getDate() < 10 ? '0' +  now.getDate()  : now.getDate();
     let month = now.getMonth() < 10 ? "0" + (now.getMonth() + 1) : now.getMonth();
     let year = now.getFullYear() < 10 ? '0' + now.getFullYear() : now.getFullYear();
     let hour = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
@@ -46,6 +47,8 @@ function setTime () {
 
     return `${hour}:${minute}:${second}  -  ${month}.${day}.${year}`
 }
+
+console.log(setTime())
 setInterval(()=> {
     setTime()
 }, 1000)
